@@ -3,11 +3,12 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 $ ->
   numbers = new Bloodhound(
-    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('num')
+    datumTokenizer: Bloodhound.tokenizers.obj.whitespace('measurement')
     queryTokenizer: Bloodhound.tokenizers.whitespace
     local: [
       { measurement: 'quart' }
       { measurement: 'pound' }
+      { measurement: 'gallon' }
       { measurement: 'ounce' }
       { measurement: 'pound' }
       { measurement: 'case' }
@@ -16,5 +17,5 @@ $ ->
   numbers.initialize()
   # instantiate the typeahead UI
   $('.typeahead').typeahead null,
-    displayKey: 'num'
+    displayKey: 'measurement'
     source: numbers.ttAdapter()

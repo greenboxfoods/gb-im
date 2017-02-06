@@ -19,13 +19,14 @@
 #  restock_lead_time :time
 #  payment_terms     :string
 #  spoilage_date     :datetime
+#  cooked            :boolean
 #
 
 class Item < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
   attr_accessible :description, :name, :picture, :quantity, :unit_value, :vendor_url, :value,
                   :vendor_name, :category, :unit_type, :brand_name, :location_id, :restock_lead_time,
-                  :payment_terms, :spoilage_date
+                  :payment_terms, :spoilage_date, :note
 
   has_one :note, as: :notable
 

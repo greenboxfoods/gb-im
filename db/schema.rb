@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170206023128) do
+ActiveRecord::Schema.define(version: 20170206031712) do
 
   create_table "items", force: :cascade do |t|
     t.text     "name"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 20170206023128) do
     t.time     "restock_lead_time"
     t.string   "payment_terms"
     t.datetime "spoilage_date"
+    t.boolean  "cooked"
   end
 
   create_table "notes", force: :cascade do |t|

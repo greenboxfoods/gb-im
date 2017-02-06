@@ -19,6 +19,7 @@
 #  restock_lead_time :time
 #  payment_terms     :string
 #  spoilage_date     :datetime
+#  cooked            :boolean
 #
 
 require 'test_helper'

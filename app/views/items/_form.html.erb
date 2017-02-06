@@ -35,25 +35,20 @@
   </div>
 
   <div class="form-group">
-    <%= f.label :quantity, class: "col-sm-3 control-label" %>
-    <div class="col-sm-5">
-      <%= f.text_field :quantity, class: "form-control" %>
-    </div>
-  </div>
-
-  <div class="form-group">
     <%= f.label :unit_value, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
       <%= f.text_field :unit_value, class: "form-control" %>
     </div>
   </div>
-
+  
   <div class="form-group">
     <%= f.label :quantity, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
       <%= f.text_field :quantity, class: "form-control" %>
     </div>
   </div>
+
+
 
   <div class="form-group">
     <%= f.label :unit_type, class: "col-sm-3 control-label" %>
@@ -65,7 +60,7 @@
   <div class="form-group">
     <%= f.label :location_id, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
-      <%= f.text_field :location_id, class: "form-control" %>
+      <%= f.select(:location_id, options_for_select([['100 Green St.(GB-1)', 'GB-1'], ['California St.(GB-2)', 'GB-2'],['Kitchen (K-1)', 'K-1']]), {}, {class: "form-control"}) %>
     </div>
   </div>
 
@@ -85,9 +80,27 @@
   </div>
 
   <div class="form-group">
+    <%= f.label :cooked, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+      <%= f.radio_button :cooked, 'false', :checked => true %>
+      <%= label :cooked, 'Uncooked' %>
+      <%= f.radio_button :cooked, 'true' %>
+      <%= label :cooked, 'Cooked' %>
+      <!-- <%= f.radio_button :cooked, class: "form-control", :data => { :provide => "datepicker"} %> -->
+    </div>
+  </div>
+
+  <div class="form-group">
     <%= f.label :category, class: "col-sm-3 control-label" %>
     <div class="col-sm-5">
-      <%= f.select(:category, options_for_select([['Arduino', 'Arduino'], ['Raspberry Pi', 'Raspberry Pi'],['BeagleBone', 'BeagleBone'],['Prototyping','Prototyping'],['Kits & Projects','Kits & Projects'],['Boards','Boards'],['LCDS & Displays','LCDS & Displays'],['LEDS','LEDS'],['Power','Power'],['Cables','Cables'],['Tools','Tools'],['Robotics','Robotics'],['CNC','CNC'],['Components & Parts','Components & Parts'],['Sensors','Sensors'],['3D Printing','3D Printing'],['Wireless','Wireless']]), {}, {class: "form-control"}) %>
+      <%= f.select(:category, options_for_select([['Dry Good', 'Dry Good'], ['Produce', 'Produce'],['Protein', 'Protein'],['Packaging','Packaging']]), {}, {class: "form-control"}) %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :note, class: "col-sm-3 control-label" %>
+    <div class="col-sm-5">
+      <%= f.text_area :note, class: "form-control", :rows =>10 %>
     </div>
   </div>
 
