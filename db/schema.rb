@@ -11,24 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140412010617) do
+ActiveRecord::Schema.define(version: 20170206023128) do
 
   create_table "items", force: :cascade do |t|
     t.text     "name"
     t.text     "description"
-    t.text     "product_model_number"
-    t.string   "vendor_part_number"
     t.string   "vendor_name"
     t.integer  "quantity"
     t.decimal  "unit_value"
     t.decimal  "value"
     t.string   "picture"
-    t.text     "vendor_url"
     t.text     "category"
-    t.string   "location"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "unit_type"
+    t.string   "brand_name"
+    t.integer  "location_id"
+    t.time     "restock_lead_time"
+    t.string   "payment_terms"
+    t.datetime "spoilage_date"
   end
+
+  create_table "notes", force: :cascade do |t|
+    t.text     "body"
+    t.integer  "notable_id"
+    t.string   "notable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "notes", ["notable_type", "notable_id"], name: "index_notes_on_notable_type_and_notable_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                              null: false

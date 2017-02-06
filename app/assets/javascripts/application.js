@@ -15,6 +15,8 @@
 //= require twitter/bootstrap
 //= require_tree .
 //= require jasny-bootstrap
+//= require bootstrap-datepicker
+//= require twitter/typeahead
 
 
 

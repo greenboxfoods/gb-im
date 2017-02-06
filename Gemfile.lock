@@ -37,8 +37,13 @@ GEM
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.4.0)
+    annotate (2.7.1)
+      activerecord (>= 3.2, < 6.0)
+      rake (>= 10.4, < 12.0)
     arel (6.0.3)
     bcrypt (3.1.11)
+    bootstrap-datepicker-rails (1.6.4.1)
+      railties (>= 3.0)
     builder (3.2.2)
     cancan (1.6.10)
     capybara (2.7.1)
@@ -249,6 +254,10 @@ GEM
       execjs (>= 2.2.2, >= 2.2)
       less-rails (>= 2.5.0)
       railties (>= 3.1)
+    twitter-typeahead-rails (0.11.1)
+      actionpack (>= 3.1)
+      jquery-rails
+      railties (>= 3.1)
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (3.0.0)
@@ -265,6 +274,8 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  annotate
+  bootstrap-datepicker-rails
   cancan
   capybara
   carrierwave
@@ -288,6 +299,7 @@ DEPENDENCIES
   seed_dump
   sqlite3
   twitter-bootstrap-rails
+  twitter-typeahead-rails
   uglifier
   will_paginate (~> 3.0)
   will_paginate-bootstrap

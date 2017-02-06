@@ -22,12 +22,15 @@ group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
   gem 'uglifier'
+  gem 'bootstrap-datepicker-rails'
+  gem 'twitter-typeahead-rails'
 end
 
 group :development, :test do
   gem 'factory_girl_rails'
   gem 'rspec-rails'
   gem 'sqlite3'
+  gem 'annotate'
 end
 
 group :test do
