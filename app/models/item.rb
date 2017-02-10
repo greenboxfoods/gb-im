@@ -24,16 +24,27 @@
 
 class Item < ActiveRecord::Base
   mount_uploader :picture, PictureUploader
-  attr_accessible :description, :name, :picture, :quantity, :unit_value, :vendor_url, :value,
-                  :vendor_name, :category, :unit_type, :brand_name, :location_id, :restock_lead_time,
-                  :payment_terms, :spoilage_date, :note
+  # attr_accessible :description, :name, :picture, :quantity, :unit_value, :vendor_url, :value,
+  #                 :vendor_name, :category, :unit_type, :brand_name, :location_id, :restock_lead_time,
+  #                 :payment_terms, :spoilage_date, :cooked, :note
 
-  has_one :note, as: :notable
 
-self.per_page = 25
 
-belongs_to :item
-after_save :update_value
+  self.per_page = 25
+
+  belongs_to :item
+  after_save :update_value
+
+  acts_as_commentable
+
+  def self.search(search)
+    if search
+      where('name LIKE ? OR description LIKE ?', "%#{search}%", "%#{search}%")
+    else
+      where(nil)
+    end
+  end
+
 protected
 
   def update_value

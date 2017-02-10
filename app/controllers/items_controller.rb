@@ -4,8 +4,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
-    respond_with(@items)
+    @items = Item.search(params[:search]).paginate(:per_page => 5, :page => params[:page])
   end
 
   # GET /items/1
@@ -38,7 +37,8 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = Item.new(item_params)
+    # @item.build_note
 
     respond_to do |format|
       if @item.save
@@ -53,10 +53,10 @@ class ItemsController < ApplicationController
   # PUT /items/1
   # PUT /items/1.json
   def update
+    Rails.logger.debug params.inspect
     @item = Item.find(params[:id])
-
     respond_to do |format|
-      if @item.update_attributes(params[:item])
+      if @item.update_attributes(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
@@ -76,4 +76,15 @@ class ItemsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  def item_params
+    params.require(:item).permit( :description, :name, :picture, :quantity, :unit_value, :vendor_url, :value,
+                                      :vendor_name, :category, :unit_type, :brand_name, :location_id, :restock_lead_time,
+                                      :payment_terms, :spoilage_date, :cooked, :note)
+  end
+
+  # def note_params
+  #   params.require(:note).permit!
+  # end
 end

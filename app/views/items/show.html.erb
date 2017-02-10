@@ -1,4 +1,3 @@
-
 <div class="panel panel-primary">
   <div class="panel-heading">
     <h3 class="panel-title"><%= @item.name %></h3>
@@ -19,8 +18,13 @@
       </div>
 
       <div class="row">
-        <div class="col-md-2"><b>Product Model Number</b></div>
-        <div class="col-md-4"><%= @item.product_model_number %></div>
+        <div class="col-md-2"><b>Quantity</b></div>
+        <div class="col-md-4"><%= @item.quantity %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Unit Value</b></div>
+        <div class="col-md-4"><%= @item.unit_value %></div>
       </div>
 
       <div class="row">
@@ -29,15 +33,49 @@
       </div>
 
       <div class="row">
-        <div class="col-md-2"><b>Vendor Part Number</b></div>
-        <div class="col-md-4"><%= @item.vendor_part_number %></div>
+        <div class="col-md-2"><b>Picture</b></div>
+        <div class="col-md-4"><%= image_tag(@item.picture) %></div>
       </div>
 
       <div class="row">
-        <div class="col-md-2"><b>Vendor URL</b></div>
-        <div class="col-md-4"><%= link_to(@item.vendor_url, @item.vendor_url, :target => "_blank") %></div>
+        <div class="col-md-2"><b>Category</b></div>
+        <div class="col-md-4"><%= @item.category %></div>
       </div>
 
+      <div class="row">
+        <div class="col-md-2"><b>Unit Type</b></div>
+        <div class="col-md-4"><%= @item.unit_type %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Brand Name</b></div>
+        <div class="col-md-4"><%= @item.brand_name %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Location ID</b></div>
+        <div class="col-md-4"><%= @item.location_id %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Restock Lead Time</b></div>
+        <div class="col-md-4"><%= @item.restock_lead_time %></div>
+      </div>
+      <div class="row">
+        <div class="col-md-2"><b>Payment Terms</b></div>
+        <div class="col-md-4"><%= @item.payment_terms %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Spoilage Date</b></div>
+        <div class="col-md-4"><%= @item.spoilage_date %></div>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2"><b>Cooked</b></div>
+        <div class="col-md-4"><%= @item.cooked %></div>
+      </div>
+      <!-- link_to(@item.vendor_url, @item.vendor_url, :target => "_blank") -->
       <div class="row">
         <div class="col-md-2"><b>Quantity</b></div>
         <div class="col-md-4"><%= @item.quantity %></div>
@@ -53,10 +91,10 @@
         <div class="col-md-4"><%= number_to_currency(@item.value, :unit => "$") %></div>
       </div>
 
-        <div class="row">
-          <div class="col-md-2"><b>Location</b></div>
-          <div class="col-md-4"><%= @item.location %></div>
-        </div>
+      <div class="row">
+        <div class="col-md-2"><b>Notes</b></div>
+        <div class="well col-md-4"><%= @item.note %></div>
+      </div>
 
         <div class="row">
           <div class="col-md-2"></div>
